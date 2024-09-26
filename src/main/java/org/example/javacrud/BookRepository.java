@@ -33,8 +33,8 @@ public class BookRepository {
     }
 
     public int update(Book book) {
-       return jdbcTemplate.update("UPDATE book SET title=?, author=?, genre=?, published_year=?",
-                book.getTitle(), book.getAuthor(), book.getGenre(), book.getPublished_year());
+       return jdbcTemplate.update("UPDATE book SET title=?, author=?, genre=?, published_year=? WHERE id=?",
+                book.getTitle(), book.getAuthor(), book.getGenre(), book.getPublished_year(), book.getId());
     }
 
     public int delete(int id) {
