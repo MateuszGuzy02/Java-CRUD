@@ -31,4 +31,13 @@ public class BookRepository {
 
         return 1;
     }
+
+    public int update(Book book) {
+       return jdbcTemplate.update("UPDATE book SET title=?, author=?, genre=?, published_year=?",
+                book.getTitle(), book.getAuthor(), book.getGenre(), book.getPublished_year());
+    }
+
+    public int delete(int id) {
+        return jdbcTemplate.update("DELETE FROM book WHERE id=?", id);
+    }
 }
